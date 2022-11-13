@@ -42,7 +42,6 @@ int check(int v)
     return 1;
 }
 
-
 void TRY(int k)
 {
     int v;
@@ -63,7 +62,7 @@ void TRY(int k)
 
             if (k == 2 * n)
             {
-                
+
                 f = f + C[x[k]][0];
                 if (f < f_best)
                 {
@@ -73,7 +72,10 @@ void TRY(int k)
             }
             else
             {
-                TRY(k + 1);
+                if (f < f_best)
+                {
+                    TRY(k + 1);
+                }
             }
             if (v <= n)
                 load = load - 1;
@@ -94,6 +96,6 @@ int main()
     input();
     TRY(1);
     cout << "\n"
-         << f_best;
+         << f_best << "\n";
     return 0;
 }
